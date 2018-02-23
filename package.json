@@ -1,0 +1,102 @@
+{
+    "name": "git-lfs-file-locking",
+    "displayName": "Git LFS File Locking UI",
+    "description": "Simple UI for managing Git LFS locks",
+    "version": "0.0.1",
+    "publisher": "kinolaev",
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onView:gitLFSLocks",
+        "onCommand:gitLFSFileLocking.lock",
+        "onCommand:gitLFSFileLocking.unlock",
+        "onCommand:gitLFSFileLocking.unlockForce",
+        "onCommand:gitLFSFileLocking.locks"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "gitLFSFileLocking.lock",
+                "title": "Lock"
+            },
+            {
+                "command": "gitLFSFileLocking.unlock",
+                "title": "Unlock",
+                "icon": {
+					"light": "resources/icons/light/clean.svg",
+					"dark": "resources/icons/dark/clean.svg"
+                }
+            },
+            {
+                "command": "gitLFSFileLocking.unlockForce",
+                "title": "Force unlock"
+            },
+            {
+                "command": "gitLFSFileLocking.locks",
+                "title": "Locks",
+                "icon": {
+					"light": "resources/icons/light/refresh.svg",
+					"dark": "resources/icons/dark/refresh.svg"
+                }
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "gitLFSFileLocking.lock",
+                    "group": "7_modification"
+                }
+            ],
+            "view/title": [
+                {
+                    "command": "gitLFSFileLocking.locks",
+                    "when": "view == gitLFSLocks",
+                    "group": "navigation"
+                }
+            ],
+            "view/item/context": [
+                {
+                	"command": "gitLFSFileLocking.unlock",
+                    "when": "viewItem == gitLFSLock",
+                    "group": "inline"
+                },
+                {
+                	"command": "gitLFSFileLocking.unlock",
+                    "when": "viewItem == gitLFSLock",
+                    "group": "7_modification@1"
+                },
+                {
+                	"command": "gitLFSFileLocking.unlockForce",
+                	"when": "viewItem == gitLFSLock",
+                    "group": "7_modification@2"
+      			}
+    		]
+        },
+        "views": {
+            "explorer": [
+                {
+                    "id": "gitLFSLocks",
+                    "name": "Git LFS Locks"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
