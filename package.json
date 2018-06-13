@@ -28,8 +28,8 @@
                 "command": "gitLFSFileLocking.unlock",
                 "title": "Unlock",
                 "icon": {
-					"light": "resources/icons/light/clean.svg",
-					"dark": "resources/icons/dark/clean.svg"
+                    "light": "resources/icons/light/clean.svg",
+                    "dark": "resources/icons/dark/clean.svg"
                 }
             },
             {
@@ -40,8 +40,8 @@
                 "command": "gitLFSFileLocking.locks",
                 "title": "Locks",
                 "icon": {
-					"light": "resources/icons/light/refresh.svg",
-					"dark": "resources/icons/dark/refresh.svg"
+                    "light": "resources/icons/light/refresh.svg",
+                    "dark": "resources/icons/dark/refresh.svg"
                 }
             }
         ],
@@ -61,21 +61,21 @@
             ],
             "view/item/context": [
                 {
-                	"command": "gitLFSFileLocking.unlock",
+                    "command": "gitLFSFileLocking.unlock",
                     "when": "viewItem == gitLFSLock",
                     "group": "inline"
                 },
                 {
-                	"command": "gitLFSFileLocking.unlock",
+                    "command": "gitLFSFileLocking.unlock",
                     "when": "viewItem == gitLFSLock",
                     "group": "7_modification@1"
                 },
                 {
-                	"command": "gitLFSFileLocking.unlockForce",
-                	"when": "viewItem == gitLFSLock",
+                    "command": "gitLFSFileLocking.unlockForce",
+                    "when": "viewItem == gitLFSLock",
                     "group": "7_modification@2"
-      			}
-    		]
+                }
+            ]
         },
         "views": {
             "explorer": [

@@ -17,7 +17,7 @@ export function activate(context: ExtensionContext) {
   const lockCmd = (current?: Uri, selected?: Array<Uri>) => {
     if (!Array.isArray(selected)) return
     selected.map(file =>
-      lock(workspace.asRelativePath(file.path), state).then(tree.render)
+      lock(workspace.asRelativePath(file.fsPath), state).then(tree.render)
     )
   }
 
