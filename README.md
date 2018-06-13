@@ -1,3 +1,5 @@
+This repo is fork
+
 # Git LFS File Locking UI for Visual Studio Code
 
 Extension that provides simple UI for managing Git LFS locks.
